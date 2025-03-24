@@ -1,0 +1,8 @@
+# www.robotstxt.org/
+# Allow search engines to index all content
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.informedpluschoice.com/sitemap.xml
