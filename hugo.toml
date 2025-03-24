@@ -6,6 +6,9 @@ theme = "informed-choice"
 [build]
   writeStats = true
 
+[build.buildStats]
+  enable = true
+
 [module]
   [[module.mounts]]
     source = "assets"
