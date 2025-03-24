@@ -1,0 +1,36 @@
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Informed + Choice</h3>
+        <p class="text-gray-400">Helping healthcare providers and agents with Medicare data access.</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Solutions</h3>
+        <ul class="space-y-2">
+          <li><a href="{{ .Site.BaseURL }}insurance-agents/" class="text-gray-400 hover:text-white">For Insurance Agents</a></li>
+          <li><a href="{{ .Site.BaseURL }}aco/" class="text-gray-400 hover:text-white">For ACOs</a></li>
+          <li><a href="{{ .Site.BaseURL }}physicians/" class="text-gray-400 hover:text-white">For Physicians</a></li>
+          <li><a href="{{ .Site.BaseURL }}pharmacists/" class="text-gray-400 hover:text-white">For Pharmacists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="{{ .Site.BaseURL }}privacy-policy/" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          <li><a href="{{ .Site.BaseURL }}terms-of-service/" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+          <li><a href="{{ .Site.BaseURL }}disclaimer/" class="text-gray-400 hover:text-white">Medicare Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+        <p class="text-gray-400">Have questions? Reach out to our team.</p>
+        <a href="{{ .Site.BaseURL }}contact/" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded">Contact Us</a>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+      <p>&copy; {{ now.Format "2006" }} Informed + Choice. All rights reserved.</p>
+      <p class="mt-2 text-sm">This product uses the Blue Button 2.0 APIs but is not endorsed or certified by the Centers for Medicare & Medicaid Services or the U.S. Department of Health and Human Services.</p>
+    </div>
+  </div>
+</footer>

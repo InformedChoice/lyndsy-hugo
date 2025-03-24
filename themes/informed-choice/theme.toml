@@ -1,0 +1,12 @@
+name = "Informed Choice"
+license = "MIT"
+licenselink = "https://github.com/InformedChoice/informed-choice/blob/main/LICENSE"
+description = "A custom Hugo theme for Informed + Choice"
+homepage = "https://informedpluschoice.com/"
+tags = ["healthcare", "medicare", "tailwind", "responsive"]
+features = ["audience-tracks", "tailwind", "responsive"]
+min_version = "0.91.0"
+
+[author]
+  name = "Christian Rodgers"
+  homepage = "https://informedpluschoice.com"

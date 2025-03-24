@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+    {{ $style := resources.Get "css/main.scss" | resources.ToCSS | resources.PostCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    {{ block "head" . }}{{ end }}
+</head>
+<body class="flex flex-col min-h-screen">
+    {{ partial "header.html" . }}
+    
+    <main class="flex-grow">
+        {{ if .Params.showBanner }}
+            {{ partial "banner.html" . }}
+        {{ end }}
+        
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{ partial "footer.html" . }}
+
+    {{ block "scripts" . }}
+        {{ $js := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+        <script src="{{ $js.RelPermalink }}"></script>
+    {{ end }}
+</body>
+</html>

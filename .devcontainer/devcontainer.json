@@ -1,0 +1,21 @@
+// For more information, see https://containers.dev/implementors/json_reference/
+{
+  "name": "Hugo Development",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "version": "latest",
+      "extended": true
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "forwardPorts": [1313],
+  "postCreateCommand": "cd lyndsy-hugo && npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": ["bungcip.better-toml", "bradlc.vscode-tailwindcss"]
+    }
+  }
+}
