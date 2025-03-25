@@ -3,8 +3,9 @@
     "dockerFile": "Dockerfile.dev",
     "workspaceFolder": "/app",
     "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
-    "forwardPorts": [1313],
+    "forwardPorts": [1313, 8025],
     "postCreateCommand": "npm install && npm run build:css",
+    "postStartCommand": "mailhog -api-bind-addr 0.0.0.0:8025 -ui-bind-addr 0.0.0.0:8025 -smtp-bind-addr 0.0.0.0:1025 > /tmp/mailhog.log 2>&1 &",
     "customizations": {
         "vscode": {
             "extensions": [
