@@ -7,7 +7,7 @@
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     <!-- Static compiled CSS -->
     <link rel="stylesheet" href="/css/style.css">
-   {{ $css := resources.Get "css/main.css" | css.PostCSS }}
+   {{ $css := resources.Get "css/main.css" }}
     {{ if hugo.IsProduction }}
         {{ $css = $css | minify | fingerprint }}
     {{ end }}
