@@ -1,21 +1,16 @@
-// For more information, see https://containers.dev/implementors/json_reference/
 {
-  "name": "Hugo Development",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/hugo:1": {
-      "version": "latest",
-      "extended": true
-    },
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
+    "name": "Hugo Development",
+    "dockerFile": "Dockerfile.dev",
+    "workspaceFolder": "/app",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+    "forwardPorts": [1313],
+    "postCreateCommand": "npm install && npm run build:css",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bungcip.better-toml",
+                "budparr.language-hugo-vscode"
+            ]
+        }
     }
-  },
-  "forwardPorts": [1313],
-  "postCreateCommand": "cd lyndsy-hugo && npm install",
-  "customizations": {
-    "vscode": {
-      "extensions": ["bungcip.better-toml", "bradlc.vscode-tailwindcss"]
-    }
-  }
 }

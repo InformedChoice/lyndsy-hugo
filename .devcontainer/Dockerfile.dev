@@ -1,0 +1,26 @@
+FROM node:20
+
+WORKDIR /app
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    wget \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Hugo based on architecture
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "arm64" ]; then \
+        wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.120.3/hugo_extended_0.120.3_linux-arm64.deb; \
+    else \
+        wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.120.3/hugo_extended_0.120.3_linux-amd64.deb; \
+    fi && \
+    dpkg -i hugo.deb && \
+    rm hugo.deb
+
+# The source code will be mounted as a volume
+# so we don't copy it here
+
+# Make the command more robust by using JSON format (as the warning suggested)
+CMD ["sh", "-c", "npm install && npm run build:css && hugo server --bind 0.0.0.0 --buildDrafts --buildFuture --port 1313 --baseURL http://localhost:1313"]
